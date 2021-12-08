@@ -1,0 +1,2 @@
+model_checkpoint_path: "modelCarsDamage.tf"
+all_model_checkpoint_paths: "modelCarsDamage.tf"

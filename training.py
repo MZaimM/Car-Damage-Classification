@@ -1,5 +1,5 @@
-import numpy as np
 import tensorflow as tf
+import numpy as np
 import os
 from prepocessing import Prepocessing
 
@@ -8,7 +8,7 @@ class Training:
     @staticmethod
     def layersCNN():
 
-        layers = [
+        layers = [ 
             tf.keras.layers.Conv2D(filters=16, kernel_size=(3,3),  activation='relu', input_shape=(96,96,1)),
             tf.keras.layers.MaxPool2D(pool_size=(2,2), strides=(2,2)),
             tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),  activation='relu'),

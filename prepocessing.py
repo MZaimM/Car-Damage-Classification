@@ -45,7 +45,7 @@ train_images = [p.load_image(train_path + file) for file in image_files]
 train_labels = [p.extract_label(file) for file in image_files]
 # print(train_labels)
 
-# # Melakukan preview prepocessing
+# Melakukan preview prepocessing
 # preview_index = 199
 # plt.subplot(1,2,1)
 # plt.imshow(train_images[preview_index])

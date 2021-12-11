@@ -20,6 +20,15 @@ class Prediction:
         eval_model.load_weights("modelCarsDamage.tf")
         eval_predictions = eval_model.predict(np.expand_dims(eval_images, axis=-1))
 
+        # if np.argmax(eval_predictions)==2:
+        #     label = "Minor"
+        # elif np.argmax(eval_predictions)==1:
+        #     label = "Severe"
+        # else :
+        #     label = "Undamage"
+        
+        # return label
+                
         cols = 4
         rows = int(np.ceil(len(eval_images)/cols))
         fig = plt.gcf()
@@ -37,6 +46,6 @@ class Prediction:
         plt.show()
 
 
-sample_path = "sample/"
+sample_path = "samples/"
 list = os.listdir(sample_path)
 Prediction.predict(sample_path, list)

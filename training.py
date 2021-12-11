@@ -1,4 +1,5 @@
 import tensorflow as tf
+import tensorflow.keras.layers as layer
 import numpy as np
 import os
 from prepocessing import Prepocessing
@@ -9,20 +10,20 @@ class Training:
     def layersCNN():
 
         layers = [ 
-            tf.keras.layers.Conv2D(filters=16, kernel_size=(3,3),  activation='relu', input_shape=(96,96,1)),
-            tf.keras.layers.MaxPool2D(pool_size=(2,2), strides=(2,2)),
-            tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3),  activation='relu'),
-            tf.keras.layers.MaxPool2D(pool_size=(2,2), strides=(2,2)),
-            tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3),  activation='relu'),
-            tf.keras.layers.MaxPool2D(pool_size=(2,2), strides=(2,2)),
-            tf.keras.layers.Conv2D(filters=128, kernel_size=(3,3), activation='relu'),
-            tf.keras.layers.MaxPool2D(pool_size=(2,2), strides=(2,2)),
-            tf.keras.layers.Conv2D(filters=256, kernel_size=(3,3), activation='relu'),
-            tf.keras.layers.MaxPool2D(pool_size=(2,2), strides=(2,2)),
-            tf.keras.layers.Flatten(),
-            tf.keras.layers.Dense(units=512, activation='relu'),
-            tf.keras.layers.Dense(units=256, activation='relu'),
-            tf.keras.layers.Dense(units=3, activation='softmax')
+            layer.Conv2D(filters=16, kernel_size=(3,3),  activation='relu', input_shape=(96,96,1)),
+            layer.MaxPool2D(pool_size=(2,2), strides=(2,2)),
+            layer.Conv2D(filters=32, kernel_size=(3,3),  activation='relu'),
+            layer.MaxPool2D(pool_size=(2,2), strides=(2,2)),
+            layer.Conv2D(filters=64, kernel_size=(3,3),  activation='relu'),
+            layer.MaxPool2D(pool_size=(2,2), strides=(2,2)),
+            layer.Conv2D(filters=128, kernel_size=(3,3), activation='relu'),
+            layer.MaxPool2D(pool_size=(2,2), strides=(2,2)),
+            layer.Conv2D(filters=256, kernel_size=(3,3), activation='relu'),
+            layer.MaxPool2D(pool_size=(2,2), strides=(2,2)),
+            layer.Flatten(),
+            layer.Dense(units=512, activation='relu'),
+            layer.Dense(units=256, activation='relu'),
+            layer.Dense(units=3, activation='softmax')
         ]
         
         return layers
@@ -37,6 +38,7 @@ class Training:
                     metrics=[tf.metrics.SparseCategoricalAccuracy()])
         model.fit(train_images, train_labels, epochs=25, steps_per_epoch=32, verbose = 1)
         model.save_weights("modelCarsDamage.tf")
+      
     
     
 

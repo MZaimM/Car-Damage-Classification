@@ -39,7 +39,7 @@ class ConvLayer2D:
         return cls(w=w, b=b, padding=padding, stride=stride)
 
 
-    def forward_pass(self, a_prev: np.array, training: bool) -> np.array:
+    def Conv2D(self, a_prev: np.array, training: bool) -> np.array:
         """
         :param a_prev - 4D tensor with shape (n, h_in, w_in, c)
         :output 4D tensor with shape (n, h_out, w_out, n_f)
@@ -49,7 +49,7 @@ class ConvLayer2D:
         h_in - tinggi volume inputan
         w_out - lebar volume output
         h_out - tinggi volume output
-        c - jumlah channe; pada volume input
+        c - jumlah channel; pada volume input
         n_f - jumlah filter pada volume input
         """
         self._a_prev = np.array(a_prev, copy=True)

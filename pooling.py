@@ -14,7 +14,7 @@ class MaxPoolLayer:
         self._a = None
         self._cache = {}
 
-    def forward_pass(self, a_prev: np.array, training: bool) -> np.array:
+    def MaxPool2D(self, a_prev: np.array, training: bool) -> np.array:
         """
         :param a_prev - 4D tensor with shape(n, h_in, w_in, c)
         :output 4D tensor with shape(n, h_out, w_out, c)
